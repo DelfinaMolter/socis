@@ -58,7 +58,10 @@ const Contact: React.FC = () => {
           </p>
 
           <div className="space-y-8">
-            <div className="flex items-start gap-6 group">
+            <a
+              href="mailto:socis@socis.com.ar"
+              className="flex items-start gap-6 group"
+            >
               <div className="p-4 bg-blue-50 rounded-2xl group-hover:bg-blue-600 transition-colors">
                 <Mail className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
               </div>
@@ -66,8 +69,11 @@ const Contact: React.FC = () => {
                 <h4 className="text-lg font-bold text-slate-900">Email</h4>
                 <p className="text-slate-600 font-medium">socis@socis.com.ar</p>
               </div>
-            </div>
-            <div className="flex items-start gap-6 group">
+            </a>
+            <a
+              href="tel:+5491144478802"
+              className="flex items-start gap-6 group"
+            >
               <div className="p-4 bg-blue-50 rounded-2xl group-hover:bg-blue-600 transition-colors">
                 <Phone className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
               </div>
@@ -75,7 +81,7 @@ const Contact: React.FC = () => {
                 <h4 className="text-lg font-bold text-slate-900">Teléfono</h4>
                 <p className="text-slate-600 font-medium">(54 911) 4447-8802</p>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -180,7 +186,7 @@ const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                disabled={formStatus === "sending"}
+                disabled={formStatus === "sending" || !recaptchaToken}
                 className="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-xl transition-all shadow-xl shadow-blue-500/25 flex items-center justify-center gap-2 disabled:opacity-50 group active:scale-[0.98]"
               >
                 {formStatus === "sending" ? "Enviando..." : "Enviar Consulta"}
