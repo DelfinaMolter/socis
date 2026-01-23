@@ -18,7 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#home" className="flex items-center gap-2 group">
           <div className="w-10 h-10 bg-[#448AFF] rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-            <img src="/socis-favico.png" alt="Socis" className="w-6 h-6" />
+            <img src="/socis-logo.png" alt="Socis" className="w-6 h-6" />
           </div>
           <span
             className={`text-2xl font-extrabold tracking-tight ${scrolled ? "text-white" : "text-slate-900"}`}
