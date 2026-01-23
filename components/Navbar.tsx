@@ -1,7 +1,6 @@
-
-import React, { useState } from 'react';
-import { Menu, X, Rocket } from 'lucide-react';
-import { NAV_ITEMS } from '../constants';
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { NAV_ITEMS } from "../constants";
 
 interface NavbarProps {
   scrolled: boolean;
@@ -11,17 +10,19 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-dark py-3' : 'bg-transparent py-6'
+        scrolled ? "glass-dark py-3" : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#home" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors">
-            <Rocket className="text-white w-6 h-6" />
+          <div className="w-10 h-10 bg-[#448AFF] rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
+            <img src="/socis-favico.png" alt="Socis" className="w-6 h-6" />
           </div>
-          <span className={`text-2xl font-extrabold tracking-tight ${scrolled ? 'text-white' : 'text-slate-900'}`}>
+          <span
+            className={`text-2xl font-extrabold tracking-tight ${scrolled ? "text-white" : "text-slate-900"}`}
+          >
             SOCIS<span className="text-blue-600">.</span>
           </span>
         </a>
@@ -33,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               key={item.href}
               href={item.href}
               className={`text-sm font-medium hover:text-blue-500 transition-colors ${
-                scrolled ? 'text-slate-300' : 'text-slate-600'
+                scrolled ? "text-slate-300" : "text-slate-600"
               }`}
             >
               {item.label}
@@ -42,14 +43,14 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-slate-900" 
+        <button
+          className="md:hidden text-slate-900"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
-            <X className={scrolled ? 'text-white' : 'text-slate-900'} />
+            <X className={scrolled ? "text-white" : "text-slate-900"} />
           ) : (
-            <Menu className={scrolled ? 'text-white' : 'text-slate-900'} />
+            <Menu className={scrolled ? "text-white" : "text-slate-900"} />
           )}
         </button>
       </div>

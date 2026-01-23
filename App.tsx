@@ -1,14 +1,13 @@
-
-import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Stats from './components/Stats';
-import Experience from './components/Experience';
-import Process from './components/Process';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import WhatsAppFloat from './components/WhatsAppFloat';
+import React, { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Stats from "./components/Stats";
+import Experience from "./components/Experience";
+import Process from "./components/Process";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -17,14 +16,14 @@ const App: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="relative min-h-screen selection:bg-blue-100 selection:text-blue-900">
       <Navbar scrolled={scrolled} />
-      
+
       <main>
         <section id="home">
           <Hero />
@@ -40,7 +39,7 @@ const App: React.FC = () => {
           <Process />
         </section>
 
-        <section id="services">
+        <section>
           <Experience />
         </section>
 
@@ -50,7 +49,7 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
-      
+
       {/* Botón flotante de WhatsApp */}
       <WhatsAppFloat />
     </div>
