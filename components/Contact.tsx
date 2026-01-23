@@ -1,0 +1,142 @@
+
+import React, { useState, useEffect, useRef } from 'react';
+import { Mail, Phone, Send, CheckCircle2 } from 'lucide-react';
+
+const Contact: React.FC = () => {
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    
+    return () => observer.disconnect();
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    setFormStatus('sending');
+    // Simulando envío de API
+    setTimeout(() => {
+      setFormStatus('success');
+    }, 1500);
+  };
+
+  return (
+    <div ref={sectionRef} className="container mx-auto px-6">
+      <div className="grid lg:grid-cols-2 gap-20">
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+          <h2 className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4">Contacto</h2>
+          <h3 className="text-4xl font-extrabold text-slate-900 mb-8 leading-tight">
+            Sepa cómo podemos ayudarlo
+          </h3>
+          <p className="text-slate-600 text-lg mb-12">
+            Complete el formulario y uno de nuestros consultores senior se pondrá en contacto con usted en menos de 24 horas hábiles.
+          </p>
+
+          <div className="space-y-8">
+            <div className="flex items-start gap-6 group">
+              <div className="p-4 bg-blue-50 rounded-2xl group-hover:bg-blue-600 transition-colors">
+                <Mail className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-slate-900">Email</h4>
+                <p className="text-slate-600 font-medium">socis@socis.com.ar</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-6 group">
+              <div className="p-4 bg-blue-50 rounded-2xl group-hover:bg-blue-600 transition-colors">
+                <Phone className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-slate-900">Teléfono</h4>
+                <p className="text-slate-600 font-medium">(54 911) 4447-8802</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={`bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-200 shadow-2xl transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+          {formStatus === 'success' ? (
+            <div className="h-full flex flex-col items-center justify-center text-center py-20 animate-in fade-in zoom-in duration-500">
+              <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
+                <CheckCircle2 className="w-10 h-10 text-emerald-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-slate-900 mb-2">¡Mensaje Enviado!</h4>
+              <p className="text-slate-600">Gracias por contactarnos. Un especialista lo asistirá a la brevedad.</p>
+              <button 
+                onClick={() => setFormStatus('idle')}
+                className="mt-8 text-blue-600 font-bold hover:underline"
+              >
+                Enviar otro mensaje
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="block text-sm font-bold text-slate-700">Nombre Completo</label>
+                  <input 
+                    type="text" 
+                    required
+                    className="w-full px-5 py-4 rounded-xl border-2 border-slate-100 bg-white text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 outline-none transition-all placeholder:text-slate-300 shadow-sm"
+                    placeholder="Ej: Juan Pérez"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="block text-sm font-bold text-slate-700">Email Corporativo</label>
+                  <input 
+                    type="email" 
+                    required
+                    className="w-full px-5 py-4 rounded-xl border-2 border-slate-100 bg-white text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 outline-none transition-all placeholder:text-slate-300 shadow-sm"
+                    placeholder="nombre@empresa.com"
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label className="block text-sm font-bold text-slate-700">Asunto de interés</label>
+                <div className="relative">
+                  <select className="w-full px-5 py-4 rounded-xl border-2 border-slate-100 bg-white text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 outline-none transition-all appearance-none shadow-sm cursor-pointer">
+                    <option>Certificación Normas ISO</option>
+                    <option>Ley de Economía del Conocimiento</option>
+                    <option>Otros</option>
+                  </select>
+                  <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label className="block text-sm font-bold text-slate-700">Mensaje / Consulta</label>
+                <textarea 
+                  rows={4} 
+                  required
+                  className="w-full px-5 py-4 rounded-xl border-2 border-slate-100 bg-white text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 outline-none transition-all placeholder:text-slate-300 shadow-sm resize-none"
+                  placeholder="Detállenos brevemente su necesidad..."
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit" 
+                disabled={formStatus === 'sending'}
+                className="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-xl transition-all shadow-xl shadow-blue-500/25 flex items-center justify-center gap-2 disabled:opacity-50 group active:scale-[0.98]"
+              >
+                {formStatus === 'sending' ? 'Enviando...' : 'Enviar Consulta'}
+                <Send className={`w-5 h-5 transition-transform ${formStatus === 'sending' ? 'translate-x-10 opacity-0' : 'group-hover:translate-x-1'}`} />
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;
