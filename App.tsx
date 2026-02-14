@@ -21,29 +21,31 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen selection:bg-blue-100 selection:text-blue-900">
+    <div className="relative min-h-screen selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
       <Navbar scrolled={scrolled} />
 
-      <main>
+      <main className="overflow-x-hidden">
         <section id="home">
           <Hero />
         </section>
 
-        <Stats />
-
-        <section id="about" className="py-24 md:py-36 bg-white overflow-hidden">
+        <section
+          id="about"
+          className="py-24 md:py-36 bg-slate-50  overflow-hidden"
+        >
           <About />
         </section>
 
-        <section id="process" className="py-24 md:py-36 bg-slate-50">
+        <section id="process" className="py-24 md:py-36 bg-white">
           <Process />
         </section>
 
+        <Stats />
         <section>
           <Experience />
         </section>
 
-        <section id="contact" className="py-24 md:py-36 bg-white">
+        <section id="contact" className="py-24 md:py-36 bg-white overflow-hidden">
           <Contact />
         </section>
       </main>

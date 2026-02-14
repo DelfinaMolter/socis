@@ -41,23 +41,23 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div ref={sectionRef} className="container mx-auto px-6">
-      <div className="grid lg:grid-cols-2 gap-20">
+    <div ref={sectionRef} className="container mx-auto ">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-20">
         <div
           className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
         >
-          <h2 className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4">
+          <h2 className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 px-6">
             Contacto
           </h2>
-          <h3 className="text-4xl font-extrabold text-slate-900 mb-8 leading-tight">
+          <h3 className="text-4xl font-extrabold text-slate-900 mb-8 leading-tight px-6">
             Sepa cómo podemos ayudarlo
           </h3>
-          <p className="text-slate-600 text-lg mb-12">
+          <p className="text-slate-600 text-lg mb-12 px-6">
             Complete el formulario y uno de nuestros consultores senior se
             pondrá en contacto con usted en menos de 24 horas hábiles.
           </p>
 
-          <div className="space-y-8">
+          <div className="space-y-8 px-6">
             <a
               href="mailto:socis@socis.com.ar"
               className="flex items-start gap-6 group"
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
         </div>
 
         <div
-          className={`bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-200 shadow-2xl transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
+          className={`bg-white px-6 p-8 md:p-12 rounded-[2.5rem] border border-slate-200 shadow-2xl transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
         >
           {formStatus === "success" ? (
             <div className="h-full flex flex-col items-center justify-center text-center py-20 animate-in fade-in zoom-in duration-500">
@@ -108,11 +108,11 @@ const Contact: React.FC = () => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 px-0 md:px-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-slate-700">
-                    Nombre Completo
+                  <label className="flex items-center text-sm font-bold text-slate-700 whitespace-nowrap">
+                    Nombre Completo <span className="text-red-500 ml-1">*</span>
                   </label>
                   <input
                     type="text"
@@ -122,14 +122,39 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-slate-700">
-                    Email Corporativo
+                  <label className="flex items-center text-sm font-bold text-slate-700 whitespace-nowrap">
+                    Email Corporativo{" "}
+                    <span className="text-red-500 ml-1">*</span>
                   </label>
                   <input
                     type="email"
                     required
                     className="w-full px-5 py-4 rounded-xl border-2 border-slate-100 bg-white text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 outline-none transition-all placeholder:text-slate-300 shadow-sm"
                     placeholder="nombre@empresa.com"
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="flex items-center text-sm font-bold text-slate-700 whitespace-nowrap">
+                    Nombre de la Empresa{" "}
+                    <span className="text-red-500 ml-1">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full px-5 py-4 rounded-xl border-2 border-slate-100 bg-white text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 outline-none transition-all placeholder:text-slate-300 shadow-sm"
+                    placeholder="Ej: Socis SRL"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="block text-sm font-bold text-slate-700">
+                    Web de la empresa
+                  </label>
+                  <input
+                    type="url"
+                    className="w-full px-5 py-4 rounded-xl border-2 border-slate-100 bg-white text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 outline-none transition-all placeholder:text-slate-300 shadow-sm"
+                    placeholder="https://www.ejemplo.com"
                   />
                 </div>
               </div>
@@ -140,6 +165,7 @@ const Contact: React.FC = () => {
                 <div className="relative">
                   <select className="w-full px-5 py-4 rounded-xl border-2 border-slate-100 bg-white text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 outline-none transition-all appearance-none shadow-sm cursor-pointer">
                     <option>Certificación Normas ISO</option>
+                    <option>Certificación ISO 27001</option>
                     <option>Ley de Economía del Conocimiento</option>
                     <option>Otros</option>
                   </select>
@@ -166,7 +192,6 @@ const Contact: React.FC = () => {
                 </label>
                 <textarea
                   rows={4}
-                  required
                   className="w-full px-5 py-4 rounded-xl border-2 border-slate-100 bg-white text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 outline-none transition-all placeholder:text-slate-300 shadow-sm resize-none"
                   placeholder="Detállenos brevemente su necesidad..."
                 ></textarea>

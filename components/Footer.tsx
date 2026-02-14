@@ -14,8 +14,8 @@ const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-slate-400 text-lg max-w-sm mb-8 leading-relaxed">
-              Expertos en Sistemas de Gestión de Calidad y regímenes de
-              promoción industrial en Argentina.
+              Implementamos normas ISO y gestionamos la Ley de Economía del
+              Conocimiento para empresas de tecnología.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-slate-300">
