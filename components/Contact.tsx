@@ -50,11 +50,17 @@ const Contact: React.FC = () => {
             Contacto
           </h2>
           <h3 className="text-4xl font-extrabold text-slate-900 mb-8 leading-tight px-6">
-            Sepa cómo podemos ayudarlo
+            Conversemos sobre tu proyecto
           </h3>
           <p className="text-slate-600 text-lg mb-12 px-6">
-            Complete el formulario y uno de nuestros consultores senior se
-            pondrá en contacto con usted en menos de 24 horas hábiles.
+            Si estás evaluando implementar un sistema de gestión basado en
+            normas ISO o aplicar a la Ley de Economía del Conocimiento, podemos
+            analizar tu situación y definir el camino más adecuado para tu
+            organización.
+          </p>
+          <p className="text-slate-600 text-lg mb-12 px-6">
+            Para poder analizar adecuadamente tu consulta y brindarte una
+            orientación inicial, te pedimos completar el formulario.
           </p>
 
           <div className="space-y-8 px-6">
@@ -158,6 +164,19 @@ const Contact: React.FC = () => {
                   />
                 </div>
               </div>
+
+              <div className="space-y-2">
+                <label className="flex items-center text-sm font-bold text-slate-700 whitespace-nowrap">
+                  Telefono <span className="text-red-500 ml-1">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-5 py-4 rounded-xl border-2 border-slate-100 bg-white text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 outline-none transition-all placeholder:text-slate-300 shadow-sm"
+                  placeholder="Ej: 1144445555"
+                />
+              </div>
+
               <div className="space-y-2">
                 <label className="block text-sm font-bold text-slate-700">
                   Asunto de interés

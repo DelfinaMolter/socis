@@ -7,6 +7,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Service, NavItem } from "./types";
+import { link } from "fs";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Inicio", href: "#home" },
@@ -66,23 +67,26 @@ export const TEAM = [
   {
     name: "Alejandro de Simone",
     role: "Director",
-    desc: "Ingeniero Industrial. Especialista en procesos productivos y de servicios.",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=500",
+    desc1: "Ingeniero Industrial.",
+    desc2: "Desarrollo Comercial y Estrategia de Servicios.",
+    image: "/alejandro-desimone-socis-2-150x150.jpg",
+    linkedin: "https://www.linkedin.com/in/alejandro-de-simone-5b839339/",
   },
   {
     name: "Marina Aguilar",
     role: "Directora",
-    desc: "Ingeniera Química. Especialista en implementación de Normas ISO.",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=500",
+    desc1: "Ingeniera Química.",
+    desc2: "Responsable Técnica en Sistemas de Gestión ISO.",
+    image: "/marina-aguilar-socis-2-150x150.jpg",
+    linkedin: "https://www.linkedin.com/in/alejandro-de-simone-5b839339/",
   },
   {
     name: "Rodolfo Molter",
     role: "Director",
-    desc: "Ingeniero Industrial. Especialista en infraestuctura de comunicaciones y datos.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=500",
+    desc1: "Ingeniero Industrial.",
+    desc2: "Operaciones y Ley de Economía del Conocimiento.",
+    image: "/rodolfo-molter-socis-2-150x150.jpg",
+    linkedin: "https://www.linkedin.com/in/rodolfomolter/",
   },
 ];
 

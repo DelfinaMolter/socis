@@ -13,29 +13,28 @@ import {
 
 const ISO_STANDARDS = [
   {
-    category: "CALIDAD",
+    category: "Sistema de Gestión de la Calidad",
     name: "ISO 9001",
-    desc: "Es un modelo de gestión que apunta a la calidad de los procesos de la organización.",
   },
   {
-    category: "MEDIO AMBIENTE",
+    category: "Sistema de Gestión Ambiental",
     name: "ISO 14001",
-    desc: "Modelo de gestión focalizado en controlar y actuar sobre los impactos ambientales.",
   },
   {
-    category: "SEGURIDAD Y SALUD",
+    category: "Seguridad y Salud en el Trabajo",
     name: "ISO 45001",
-    desc: "(OHSAS 18001) Ayuda a la mejora de los factores que pueden afectar al bienestar de los trabajadores de la empresa.",
   },
   {
-    category: "TRADUCCIONES",
+    category: "Seguridad de la Información",
+    name: "ISO 27001",
+  },
+  {
+    category: "Servicios de Traducción",
     name: "ISO 17100",
-    desc: "Esta norma detalla los requisitos para todos los aspectos del proceso de traducción que repercuten directamente en la calidad y prestación de los servicios de traducción.",
   },
   {
-    category: "LABORATORIOS",
-    name: "ISO/IEC 17025 – IRAM 301",
-    desc: "Estándar internacional que establece los requisitos generales que debe cumplir cualquier laboratorio que desea garantizar su competencia técnica y fiabilidad de sus resultados.",
+    category: "Laboratorios de Ensayo y Calibración",
+    name: "ISO 17025",
   },
 ];
 
@@ -164,8 +163,8 @@ const Hero: React.FC = () => {
                       Certificación Normas ISO
                     </h3>
                     <p className="text-slate-600 max-w-xl">
-                      Lo acompañamos paso a paso hasta lograr la certificación
-                      de la Norma ISO 9001, 14001, 45001, 17025, 27001, y otras.
+                      Implementación de Sistemas de Gestión basados en Normas
+                      ISO
                     </p>
                   </div>
                 </div>
@@ -186,20 +185,119 @@ const Hero: React.FC = () => {
               <div
                 className={`transition-all duration-700 ease-in-out ${expandedSection === "iso" ? "max-h-[2000px] opacity-100 mt-12" : "max-h-0 opacity-0 overflow-hidden"}`}
               >
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 border-t border-slate-100">
-                  {ISO_STANDARDS.map((iso) => (
-                    <div key={iso.name} className="space-y-3 group">
-                      <span className="text-[10px] font-black tracking-widest text-blue-500 uppercase">
-                        {iso.category}
-                      </span>
-                      <h4 className="text-xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors">
-                        {iso.name}
+                {/* Elegant Introduction Section */}
+                <div className="relative pl-6 border-l-4 border-blue-600 max-w-4xl">
+                  <p className="text-slate-700 text-base md:text-lg leading-relaxed font-normal">
+                    Acompañamos a organizaciones de distintos sectores en la
+                    implementación de sistemas de gestión basados en normas ISO,
+                    adaptados a su estructura, realidad operativa y objetivos
+                    estratégicos.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <div className="space-y-4 mt-8">
+                      <h4 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                        Normas con las que trabajamos
                       </h4>
-                      <p className="text-slate-500 text-sm leading-relaxed">
-                        {iso.desc}
+                    </div>
+                    <div className="space-y-8 pt-5 border-t border-slate-100">
+                      {ISO_STANDARDS.map((iso) => (
+                        <div
+                          key={iso.name}
+                          className="flex items-center justify-start gap-4 group"
+                        >
+                          <h4 className="text-xl font-extrabold text-slate-900 ">
+                            {iso.name}
+                          </h4>
+                          <span className="text-xs font-black tracking-widest text-blue-500 uppercase text-right">
+                            {iso.category}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="space-y-4 mt-8 ">
+                      <h4 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                        Nuestro enfoque
+                      </h4>
+                    </div>
+                    <div className="space-y-3 pt-5 gap-3">
+                      {[
+                        {
+                          title: "Sostenibilidad",
+                          desc: "Sostenibilidad real, no soluciones superficiales.",
+                        },
+                        {
+                          title: "Alineamiento",
+                          desc: "Alineado a la estrategia de la organización.",
+                        },
+                        {
+                          title: "Consistencia",
+                          desc: "Estructura clara y documentación consistente.",
+                        },
+                        {
+                          title: "Garantía",
+                          desc: "Preparación para auditorías de certificación.",
+                        },
+                        {
+                          title: "Cercanía",
+                          desc: "Acompañamiento cercano durante todo el proceso.",
+                        },
+                      ].map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="flex gap-2.5 p-3 rounded-xl bg-white border border-slate-100 hover:border-blue-100 transition-all duration-300 shadow-sm"
+                        >
+                          <div className="w-7 h-7 bg-blue-50 text-blue-600 font-bold text-base rounded-lg flex items-center justify-center shrink-0">
+                            0{idx + 1}
+                          </div>
+                          <div className="self-center">
+                            <h5 className="font-bold text-slate-900 text-base leading-none">
+                              {item.title}
+                            </h5>
+                            <p className="text-slate-500 text-base mt-1 leading-normal">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="gap-6 flex flex-col mt-12">
+                  {/* Nuestro diferencial */}
+                  <div className="bg-gradient-to-br from-slate-900 to-blue-950 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-xl flex-1 flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
+                    {/* Decorative subtle ambient light blob */}
+                    <div className="absolute top-0 right-0 w-44 h-44 bg-blue-550 opacity-15 blur-[80px] pointer-events-none"></div>
+
+                    <div className="space-y-4 relative z-10">
+                      <h4 className="text-xl md:text-2xl font-extrabold text-white leading-snug">
+                        Nuestro Diferencial{" "}
+                      </h4>
+                      <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+                        Implementamios nirmas como una herramienta de orden y
+                        mejora organizacional que fortalece la estructura de la
+                        empresa y la prepara para crecer de forma sostenida.
                       </p>
                     </div>
-                  ))}
+                  </div>
+                  {/* Prominent Quote Block */}
+                  <div className="bg-blue-600 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-xl text-center hover:bg-blue-650 transition-colors duration-300">
+                    <div className="absolute -top-10 -left-10 text-[10rem] font-serif text-blue-500 opacity-20 pointer-events-none select-none">
+                      “
+                    </div>
+                    <div className="relative z-10 py-2">
+                      <p className="text-xl md:text-2xl font-serif italic font-medium leading-relaxed">
+                        "Implementar un sistema de gestión no es un trámite, es
+                        una decisión organizacional"
+                      </p>
+                      <div className="w-12 h-1 bg-white/30 mx-auto mt-6 rounded-full"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -221,8 +319,11 @@ const Hero: React.FC = () => {
                       ISO 27001
                     </h3>
                     <p className="text-slate-600 max-w-xl">
-                      Seguridad de la Información: Proteja la confidencialidad,
-                      integridad y disponibilidad de sus activos digitales.
+                      Seguridad de la Información: La información es uno de los
+                      activos más críticos de cualquier organización. ISO 27001
+                      permite proteger la confidencialidad, integridad y
+                      disponibilidad de esa información mediante un enfoque
+                      estructurado de gestión de riesgos.
                     </p>
                   </div>
                 </div>
@@ -366,9 +467,10 @@ const Hero: React.FC = () => {
                       Economía del Conocimiento
                     </h3>
                     <p className="text-slate-600 max-w-xl">
-                      Le ayudamos a armar la solicitud para acceder a los
-                      beneficios del régimen de promoción nacional de forma
-                      eficiente.
+                      Acompañamos a empresas tecnológicas en el acceso a los
+                      beneficios del Régimen de Promoción de la Economía del
+                      Conocimiento, definiendo la estrategia más adecuada según
+                      la realidad de cada organización.
                     </p>
                   </div>
                 </div>
@@ -399,19 +501,18 @@ const Hero: React.FC = () => {
                       </h4>
                     </div>
 
-                    <div className="grid md:grid-cols-12 gap-10 items-start">
-                      <div className="md:col-span-4 flex justify-center">
-                        <div className="relative p-4 bg-white rounded-full shadow-lg border border-slate-50">
-                          <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Coat_of_arms_of_Argentina.svg/1200px-Coat_of_arms_of_Argentina.svg.png"
-                            alt="Escudo Nacional Argentino"
-                            className="w-48 h-auto object-contain"
-                          />
-                        </div>
-                      </div>
-
+                    <div className="gap-10 items-start">
                       <div className="md:col-span-8 space-y-8">
                         <div className="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100">
+                          <p className="text-slate-800 font-bold leading-relaxed">
+                            ¿Qué es el Régimen de Promoción?
+                          </p>
+                          <p className="text-slate-800 font-medium leading-relaxed">
+                            Es un régimen nacional que otorga beneficios
+                            fiscales a empresas que desarrollan actividades
+                            basadas en el conocimiento, siempre que cumplan
+                            determinados requisitos técnicos y organizacionales.
+                          </p>
                           <p className="text-slate-800 font-medium leading-relaxed">
                             Cientos de empresas ya gozan del beneficio. Lo
                             asesoramos con los requisitos, realizamos la
@@ -423,23 +524,74 @@ const Hero: React.FC = () => {
 
                         <div className="space-y-4">
                           <h5 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                            <Info className="w-5 h-5 text-emerald-600" />{" "}
                             Beneficios Principales
                           </h5>
-                          <div className="grid sm:grid-cols-2 gap-4">
+                          <div className=" gap-4">
                             {[
                               "Reducción en el Impuesto a las ganancias (60% micro/pymes, 40% medianas, 20% grandes).",
                               "Bono de crédito fiscal de hasta el 70% de las contribuciones patronales.",
                             ].map((benefit, i) => (
                               <div
                                 key={i}
-                                className="flex gap-3 text-sm text-slate-600"
+                                className="flex gap-3 mt-3 text-sm text-slate-600"
                               >
                                 <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
                                 <span>{benefit}</span>
                               </div>
                             ))}
                           </div>
+                          <p className="text-sm text-slate-600 ">
+                            Estos beneficios impactan directamente en la e
+                            structura financiera y competitividad de la empresa.
+                          </p>
+                        </div>
+                        <div className="space-y-4">
+                          <h5 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            Requisitos y alternativas de cumplimiento
+                          </h5>
+
+                          <p className="text-sm text-slate-600 ">
+                            El régimen establece distintos criterios de acceso,
+                            que pueden incluir exportaciones, inversión en
+                            investigación y desarrollo, capacitación del
+                            personal o implem entación de sistemas formales de
+                            gestión.
+                          </p>
+                          <p className="text-sm text-slate-600 ">
+                            Analizamos cada caso en particular para definir la
+                            estrategia más adecuada según la realidad de la
+                            empresa.
+                          </p>
+                        </div>
+                        <div className="space-y-4">
+                          <h5 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            Nuestro acompañamiento incluye
+                          </h5>
+
+                          <ul>
+                            <li className="flex gap-3 mt-3 text-sm text-slate-600">
+                              <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                              Evaluación de la situación de la empresa frente a
+                              los requisitos del régimen.
+                            </li>
+                            <li className="flex gap-3 mt-3 text-sm text-slate-600">
+                              <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                              Definición de estrategia de aplicación.
+                            </li>
+                            <li className="flex gap-3 mt-3 text-sm text-slate-600">
+                              <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                              Preparación y presentación de documentación.
+                            </li>
+                            <li className="flex gap-3 mt-3 text-sm text-slate-600">
+                              <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                              Seguimiento del proceso hasta su aprobación.
+                            </li>
+                          </ul>
+                          <p className="text-sm text-slate-600 ">
+                            Acceder a la LEC no es solo presentar documentación.
+                            Es estructurar la organización para sostener el
+                            beneficio en e l tiempo
+                          </p>
                         </div>
                       </div>
                     </div>
